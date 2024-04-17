@@ -674,7 +674,7 @@
 // Function to display confessions
 function displayConfessions() {
   const db = getFirestore();
-  const queryRef = query(collection(db, "ConfessionCWM"), orderBy("timestamp", "desc"));
+  const queryRef = query(collection(db, "ConfessionCWM"), orderBy("timestamp", "desc"), limit(15));
 
   getDocs(queryRef)
     .then((querySnapshot) => {
