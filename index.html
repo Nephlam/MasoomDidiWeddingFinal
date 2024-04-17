@@ -98,8 +98,8 @@
   height: 254px;
   border-radius: 30px;
   background: #e4e4e4;
-  box-shadow: 15px 15px 30px rgb(25, 25, 25, 0.5),
-              -15px -15px 30px rgb(60, 60, 60, 0.5);
+  box-shadow: 15px 15px 30px rgb(25, 25, 25, 0.2),
+              -15px -15px 30px rgb(60, 60, 60, 0.2);
  }
  .card3 {
   position: relative;
@@ -257,7 +257,105 @@
   transform: translate(70px, -52px);
   letter-spacing: 0px;
 }
- 
+.playstore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  background-color: rgba(66, 133, 244, 1);
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  outline: 0;
+  transition: all  .2s ease;
+  text-decoration: none;
+}
+
+.playstore-button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+}
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.texts {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+
+.text-1 {
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.text-2 {
+  font-weight: 600;
+}
+.location1-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  background-color: rgba(244, 180, 0, 1); 
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  outline: 0;
+  transition: all  .2s ease;
+  text-decoration: none;
+}
+
+.location1-button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+}
+.location2-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  background-color: #EA4335;
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  outline: 0;
+  transition: all  .2s ease;
+  text-decoration: none;
+}
+
+.location2-button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+}
+.spotify-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 9999px;
+  background-color: #1DB954; /* Changed color to #1DB954 */
+  padding: 0.625rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  outline: 0;
+  transition: all  .2s ease;
+  text-decoration: none;
+}
+
+.spotify-button:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 1);
+}
   </style>
 </head>
 
@@ -300,7 +398,7 @@
         
     </div>
       <div class="card">
-        <h3 class="card__title">Haldi And Snageet
+        <h3 class="card__title">Haldi And Sangeet
         </h3>
         <p class="card__content">Join us for the illustrious and joyous Haldi and Sangeet celebrations at the magnificent <a href="https://maps.app.goo.gl/EUwg1q8gD5ZL9BZ99" style="text-decoration: none; color: #0e0091;">Sudarshan Lawns</a>, where we'll revel in dance and merriment!</p>
         <div class="card__date">
@@ -332,29 +430,71 @@
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Links</h3>
-    <p style="display: flex; align-items: center;"><i style="margin-right: 10px;">
+    <a class="playstore-button" href="https://photos.app.goo.gl/2UDXABUWAuVqQ4jx6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+      <span class="texts">
+        <span class="text-1">Google Photos</span>
+        <span class="text-2">Upload  Pics here!</span>
+      </span>
+    </a>
+
+    <div style="padding-top: 10px;">
+      <a class="location1-button" href="https://maps.app.goo.gl/5CE5h5QRwK3NG9GTA">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="texts">
+          <span class="text-1">Google Maps</span>
+          <span class="text-2">Engagement Venue</span>
+        </span>
+      </a>
+    </div>
+    <div style="padding-top: 10px;">
+      <a class="location2-button" href="https://maps.app.goo.gl/EUwg1q8gD5ZL9BZ99">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="texts">
+          <span class="text-1">Google Maps</span>
+          <span class="text-2">Wedding Venue</span>
+        </span>
+      </a>
+    </div>
+    <div style="padding-top: 10px;">
+      <a class="spotify-button" href="https://open.spotify.com/playlist/5VRtfK57wmwUP9EQZvQVms?si=ITno1pr5QeuuG8aTqIYmgg&pi=a-BstzRjlWR_K7">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span class="texts">
+          <span class="text-1">Spotify</span>
+          <span class="text-2">Enjoy Music Playlist</span>
+        </span>
+      </a>
+    </div>
+    
+    <!-- <p style="display: flex; align-items: center;"><i style="margin-right: 10px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hard-drive"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" x2="6.01" y1="16" y2="16"/><line x1="10" x2="10.01" y1="16" y2="16"/></svg></i>
       <a href="https://drive.google.com/drive/folders/1-Cbqn8U8n-GiVigBD37wmnSMlGO2WMgx" style="text-decoration: none; color: #4285F4;">GDrive to upload all the photos from the wedding for everyone!</a>
     </p>
     <p style="display: flex; align-items: center;"><i style="margin-right: 10px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></i>
       <a href="https://maps.app.goo.gl/5CE5h5QRwK3NG9GTA" style="text-decoration: none; color: #F4B400;">Engagement Venue, </a>
-      <a href="https://maps.app.goo.gl/EUwg1q8gD5ZL9BZ99" style="text-decoration: none; color: #0F9D58;">Haldi and Wedding Venue</a>
+      <a href="https://maps.app.goo.gl/EUwg1q8gD5ZL9BZ99" style="text-decoration: none; color: #0F9D58;"> Haldi and Wedding Venue</a>
     </p>
     <p style="display: flex; align-items: center;"><i style="margin-right: 10px;">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></i>
       <a href="https://open.spotify.com/playlist/5VRtfK57wmwUP9EQZvQVms?si=ITno1pr5QeuuG8aTqIYmgg&pi=a-BstzRjlWR_K7" style="text-decoration: none; color: #1DB954">See what music you will be served with!</a>
-    </p>
+    </p> -->
   </div>
+
 
   <!-- Contact Section -->
   <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-    <p>Feel Free to ask me anything about the wedding!</p>
+    <p>Feel Free to ask us anything about the wedding!</p>
     <div class="card2" style="padding: 20px;">
-      <h2 style="font-weight: bold; font-size: 20px;">Yugrajsingh Parmar</h2>
+      <h2 style="font-weight: bold; font-size: 20px;">Yugrajsingh</h2>
       <p style="font-size: 14px;"><img src="/cwedsmimages/whatsapp_logo.png" alt="WhatsApp Logo" style="width: 20px; vertical-align: middle;"> Contact: <a href="tel:+917499297267" style="text-decoration: none; color: inherit;">+91 7499297267</a></p>
       <p style="font-size: 12px; color: #888;">As the bride's younger brother, I'm thrilled to be part of this special day. I'm here to lend a hand and ensure everything goes smoothly. Feel free to reach out if you need assistance. Let's make this celebration unforgettable together!</p>
+    </div>
+    <div class="card2" style="padding: 20px; margin-top: 40px;">
+      <h2 style="font-weight: bold; font-size: 20px;">Krishna</h2>
+      <p style="font-size: 14px;"><img src="/cwedsmimages/whatsapp_logo.png" alt="WhatsApp Logo" style="width: 20px; vertical-align: middle;"> Contact: <a href="tel:+919766906526" style="text-decoration: none; color: inherit;">+91 9766906526</a></p>
+      <p style="font-size: 12px; color: #888;">As the bride's elder sister, I'm delighted to play a role in this momentous occasion. I'm here to offer my support and ensure everything proceeds seamlessly. Don't hesitate to contact me if you require any assistance. Let's work together to create unforgettable memories on this joyous day!</p>
     </div>
     <div class="card3">
       <div class="background">
