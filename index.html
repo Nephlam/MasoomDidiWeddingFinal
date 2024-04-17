@@ -630,7 +630,7 @@
   import { initializeApp} from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js'
   import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js'
   import { getAuth } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
-  import { getFirestore, collection, getDocs, addDoc, setDoc, doc} from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
+  import { getFirestore, collection, getDocs, addDoc, setDoc, doc, orderBy} from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
   import { getDatabase, ref, push, set, onValue, query, orderByChild, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
   const firebaseConfig = {
     apiKey: "AIzaSyDe78XkS937Jz0O5FOcUqctLIAu_8eMFac",
@@ -657,6 +657,8 @@
         console.log("Confession added with ID: ", docRef.id);
         // Clear textarea after adding confession
         document.getElementById("noteInput").value = "";
+         // Reload the page after adding confession
+         window.location.reload();
       })
       .catch(function(error) {
         console.error("Error adding confession: ", error);
@@ -672,9 +674,9 @@
 // Function to display confessions
 function displayConfessions() {
   const db = getFirestore();
-  const confessionsRef = collection(db, "ConfessionCWM");
+  const queryRef = query(collection(db, "ConfessionCWM"), orderBy("timestamp", "desc"));
 
-  getDocs(confessionsRef)
+  getDocs(queryRef)
     .then((querySnapshot) => {
       document.getElementById("notesContainer").innerHTML = ""; // Clear previous confessions
       querySnapshot.forEach((doc) => {
