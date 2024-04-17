@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+
+
   <style>
     @media screen and (max-width: 768px) {
       .w3-image{
@@ -356,6 +358,71 @@
   background-color: transparent;
   color: rgba(0, 0, 0, 1);
 }
+/* Card Styles */
+.card4 {
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #edf2f7;
+  color: #2d3748;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.card4-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card4-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.card4-content {
+  margin-top: 1%;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card4-footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.card4 textarea {
+  width: 100%;
+  height: 6rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  resize: none;
+}
+
+.card4 button {
+  background-color: #4a90e2;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.card4 button:hover {
+  background-color: #3572b8;
+}
+
+.card4-content p {
+  margin: 0;
+}
+
   </style>
 </head>
 
@@ -480,7 +547,25 @@
       <a href="https://open.spotify.com/playlist/5VRtfK57wmwUP9EQZvQVms?si=ITno1pr5QeuuG8aTqIYmgg&pi=a-BstzRjlWR_K7" style="text-decoration: none; color: #1DB954">See what music you will be served with!</a>
     </p> -->
   </div>
-
+  <div class="w3-container w3-padding-32" id="confession">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Confession</h3>
+    <div class="card4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
+      <div class="col-span-4 rounded-lg border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <h3 class="card4-title text-2xl font-semibold leading-none tracking-tight">Confess Anonymously</h3>
+          <div>
+            <textarea id="noteInput" class="w-full h-24 p-2 border rounded-md" placeholder="Add your tea..."></textarea>
+          </div><button id="addNoteBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-2">Add Confession</button></div>
+          <h3 class="card4-title text-2xl font-semibold leading-none tracking-tight">Previous Confessions</h3>  
+        <div id="notesContainer" class="card4-content p-6 pt-0">
+          <!-- Notes will be dynamically added here -->
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    
+  </div>
 
   <!-- Contact Section -->
   <div class="w3-container w3-padding-32" id="contact">
@@ -538,5 +623,81 @@
   
 </footer>
 </main>
+<!-- <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script> -->
+<script type="module">
+  import { initializeApp} from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js'
+  import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js'
+  import { getAuth } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
+  import { getFirestore, collection, getDocs, addDoc, setDoc, doc} from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
+  import { getDatabase, ref, push, set, onValue, query, orderByChild, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyDe78XkS937Jz0O5FOcUqctLIAu_8eMFac",
+    authDomain: "chaitanyawedsmasssom.firebaseapp.com",
+    projectId: "chaitanyawedsmasssom",
+    storageBucket: "chaitanyawedsmasssom.appspot.com",
+    messagingSenderId: "629201108000",
+    appId: "1:629201108000:web:a4b2aac7f7c9ad37f0d045",
+    measurementId: "G-PDFSDFBGTR"
+  };
+  const app = initializeApp(firebaseConfig);
+  var db = getFirestore(app);
+
+  document.getElementById("addNoteBtn").addEventListener("click", function() {
+    var confession = document.getElementById("noteInput").value.trim();
+    if (confession !== "") {
+      const serverTimestamp = new Date();
+      // Add confession to Firestore with custom-formatted timestamp
+      addDoc(collection(db, "ConfessionCWM"), {
+        confession: confession,
+        timestamp: serverTimestamp
+      })
+      .then(function(docRef) {
+        console.log("Confession added with ID: ", docRef.id);
+        // Clear textarea after adding confession
+        document.getElementById("noteInput").value = "";
+      })
+      .catch(function(error) {
+        console.error("Error adding confession: ", error);
+      });
+    } else {
+      alert("Please enter a confession!");
+    }
+  });
+  
+  
+  
+
+// Function to display confessions
+function displayConfessions() {
+  const db = getFirestore();
+  const confessionsRef = collection(db, "ConfessionCWM");
+
+  getDocs(confessionsRef)
+    .then((querySnapshot) => {
+      document.getElementById("notesContainer").innerHTML = ""; // Clear previous confessions
+      querySnapshot.forEach((doc) => {
+        var confessionData = doc.data();
+        var confessionHTML = `
+          <div  class="confession" style="margin-bottom: 20px";>
+            <p>${confessionData.confession}</p>
+            <small>${confessionData.timestamp.toDate().toLocaleString()}</small>
+          </div>
+        `;
+        document.getElementById("notesContainer").innerHTML += confessionHTML;
+      });
+    })
+    .catch((error) => {
+      console.error("Error getting confessions: ", error);
+    });
+}
+
+displayConfessions();
+
+
+
+// Call displayConfessions function initially to load existing confessions
+</script>
 </body>
 </html>
