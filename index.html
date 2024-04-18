@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Della+Respira&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
 
@@ -419,8 +422,20 @@
   background-color: #3572b8;
 }
 
-.card4-content p {
-  margin: 0;
+.card4-content {
+  margin: 0px;
+}
+.nav-text{
+  font-size: 10px;
+  margin-top: 5px;
+  font-family: "Della Respira", serif;
+  font-weight: bold;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+.della-respira-regular {
+  font-family: "Della Respira", serif;
+  font-style: normal;
 }
 
   </style>
@@ -435,9 +450,10 @@
     <a href="#home" class="w3-bar-item w3-button" style="font-family: 'Allura', cursive;"><b>C</b>weds<b>M</b></a>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right">
-      <a href="#projects" class="w3-button">Timeline</a>
-      <a href="#about" class="w3-bar-item w3-button">Links</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      <a href="#projects" class="nav-text w3-bar-item w3-button">Timeline</a>
+      <a href="#confession" class="nav-text w3-bar-item w3-button">Confessions</a>
+      <a href="#about" class="nav-text w3-bar-item w3-button">Links</a>
+      <a href="#contact" class="nav-text w3-bar-item w3-button">Contact</a>
     </div>
   </div>
 </div>
@@ -452,7 +468,7 @@
 
   <!-- Project Section -->
   <div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Timeline</h3></div>
+    <h3 class="della-respira-regular w3-border-bottom w3-border-light-grey w3-padding-16">Timeline</h3></div>
 
     <div class="card-grid">
       <div class="card">
@@ -493,8 +509,9 @@
     </div> -->
     
     </div>
+     <!-- Confession Section -->
   <div class="w3-container w3-padding-32" id="confession">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Confession</h3>
+    <h3 class="della-respira-regular w3-border-bottom w3-border-light-grey w3-padding-16">Confession</h3>
     <div class="card4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-7">
       <div class="col-span-4 rounded-lg border bg-card text-card-foreground shadow-sm">
         <div class="flex flex-col space-y-1.5 p-6">
@@ -514,7 +531,7 @@
   </div>
   <!-- About Section -->
   <div class="w3-container w3-padding-32" id="about">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Links</h3>
+    <h3 class="della-respira-regular w3-border-bottom w3-border-light-grey w3-padding-16">Links</h3>
     <a class="playstore-button" href="https://photos.app.goo.gl/2UDXABUWAuVqQ4jx6">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
       <span class="texts">
@@ -569,7 +586,7 @@
 
   <!-- Contact Section -->
   <div class="w3-container w3-padding-32" id="contact">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+    <h3 class="della-respira-regular w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
     <p>Feel Free to ask us anything about the wedding!</p>
     <div class="card2" style="padding: 20px;">
       <h2 style="font-weight: bold; font-size: 20px;">Yugrajsingh</h2>
